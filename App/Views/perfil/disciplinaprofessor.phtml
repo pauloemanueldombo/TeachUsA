@@ -1,0 +1,135 @@
+
+
+<div class="container">
+  <div class="row mt-0">
+      <div class="col-12 mt-3">
+        <h3 class="text-center mt-2"></h3>
+      </div>
+        
+  </div>
+  
+<!---==============================================================================-->
+<!---============================  TERCEIRO PASSO LOCAL  ============================-->
+<!---==============================================================================-->
+<div class="d-flex justify-content-center">
+                <div class="card mt-0" style="width: 60rem;">
+                    <div class="card-body">
+
+                        <div class="row">
+                        <div class="col">
+                            <h4 class="text-center">DISCIPLINAS A LECIONAR</h4>
+                            <hr>
+                        </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <h5>ÁREA</h5>
+                               <hr>
+                                <div class="row mt-1">
+                                    <div class="col-12">
+                                        <table class = "table table-bordered border-primary">
+                                            <tbody>
+                                            <?php 
+                                                foreach($this->view->lista_area as $key => $valor){ 
+                                            ?>
+                                                <tr>
+                                                    <th>                                                      
+                                                            <h5><?= $valor['area'] ?></h5>
+                                                    </th>
+                                                    <th>
+                                                        <a href="/disciplinaprofessor?id_area=<?= $valor['id_area'] ?>" type="submit" class="btn btn-primary btn-block tex-light"><img style="width: 1.3rem;" src="/img/add.png" /></a>
+                                                    </th>
+                                                </tr>
+                                            <?php  }?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <h5>DISCIPLÍNA</h5>
+                               <hr>
+                                <div class="row mt-1">
+                                    <div class="col-12">
+                                        <table class = "table table-bordered border-primary">
+                                            <tbody>
+                                            <?php 
+                                                if($this->view->lista_disciplina != ''){
+                                                foreach($this->view->lista_disciplina as $key => $valor){ 
+                                            ?>
+                                                <tr>
+                                                    <th>                                                      
+                                                            <h5><?= $valor['disciplina'] ?></h5>
+                                                    </th>
+                                                    <th>
+                                                        <a href="/guardardisciplina?id_disciplina= <?= $valor['id_disciplina'] ?> " type="submit" class="btn btn-primary btn-block tex-light"><img style="width: 1.3rem;" src="/img/add.png" /></a>
+                                                    </th>
+                                                </tr>
+                                            <?php  }}?>
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <h5>DISCIPLÍNAS ADICIONADAS</h5>
+                                <hr>
+                               
+                                <div class="row">
+                                    <div class="col-12">
+                                        <table class = "table table-bordered border-primary">
+                                            <thead>
+                                                
+                                            </thead>
+                                            <tbody>
+                                            <?php 
+                                                if($this->view->adicionados != ''){
+                                                foreach($this->view->adicionados as $key => $valor){ 
+                                            ?>
+                                                <tr>
+                                                    <th>
+                                                        
+                                                            <h5><?= $valor['disciplina'] ?></h5>
+                                                        
+                                                    </th>
+                                                    <th>
+                                                    <a href="/iliminar_disciplina_add?id_disciplina=<?= $valor['id_professor_disciplina']?> " type="submit" class="btn btn-danger btn-block tex-light"><img style="width: 1.3rem;" src="/img/iliminar.png" /></a>
+
+                                                    </th>
+                                                </tr>
+                                                
+                                            <?php  }}?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                           
+                        </div>
+                        
+
+                    </div>
+                </div>
+            </div>
+
+  <!---==============================================================================-->
+        <!---============================  QUARTO PASSO LOCAL  ============================-->
+    <!---==============================================================================-->
+    
+                 <div class="row mt-2">
+                    <div class="col-12 m-auto">
+                            <center>
+                              <a href="/foto_de_perfil" style="width: 20rem;" type="submit" class="btn btn-primary btn-block mb-5">Guardar Dado</a> 
+                            </center>
+                                         
+                    </div>
+                  </div>
+
+
+                  </form>
+
+</div>

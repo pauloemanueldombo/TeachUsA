@@ -1,0 +1,83 @@
+<?php 
+session_start();
+if(isset($_SESSION['email']) && isset($_SESSION['senha'])){
+	header('Location: /timeline');
+}
+?>
+
+<main class = "backf">
+<div class="container-fluid h-100 " onclick = "fechar_modal()">
+	<div class="row mt-5">
+    
+
+		<div class="col-lg-4 m-auto col-sm-12 mt-5" >
+			
+			
+			
+
+			<div class="card">
+				<div class="card-body">
+				<form method="POST" action="/autenticar" >
+			<div class="d-flex justify-content-center">
+          		<img src="/img/teach.png"  style="width: 6rem;" />
+        	</div>
+				<div class="row mt-3">
+					<div class="col-12">
+						<input id = "email" type="text" name="email" class="form-control" placeholder="E-mail">
+					</div>
+				</div>
+				<div class="row mt-3">
+					<div class="col-12">
+						<input id = "pass" type="password" name="senha" class="form-control" placeholder="Senha">
+					</div>
+				</div>
+				<?php if($this->view->login == 'erro'){ ?>
+				<div class="row">
+					<div class="col-12">
+						<div class="row">
+							<div class="col-6 m-auto">
+								<span class = "text text-danger">Email ou senha inválido!</span>
+							</div> 
+						</div>
+						
+					</div>				
+				</div>
+				<?php }?>
+				<div class="row mt-3">
+					<div class="col-12">
+						<div class="row">
+							<div class="col-8 m-auto">
+								<button onclick = "autenticar()" type="submit" class="btn btn-primary btn-block">Entrar</button>
+							</div>
+						</div>
+						
+					</div>				
+				</div>
+				
+			
+			</form>
+			<div class="row">
+			<div class="col-12">
+					<center>
+			<a class = "text-center" href="/recuperar_senha"><b>Esqueci a minha senha!</b></a>
+					
+					</center>
+			</div>
+			</div>
+			<div class="row ">
+				<div class="col pl-5 pr-5">
+					<h5 class="subtitle text-center">Participa hoje do TeachUs.</h5>
+					<a href="/inscreverse" class="btn btn-primary btn-block">Inscrever-se</a>
+				</div>	
+			</div>
+
+				</div>
+			</div>
+
+
+		</div>
+		
+	</div>
+
+</div>
+</main>

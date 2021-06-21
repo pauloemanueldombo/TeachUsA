@@ -1,0 +1,246 @@
+
+
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="container">
+
+    <div class="logo float-left">
+        <img src="./img/teach_header.png" alt="" style="width: 10rem;"> 
+      </div>
+     
+      <?php if($_SESSION['perfil'] == '2'){ ?>
+        <nav class="nav-menu float-right d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="/timeline_professor"><img style="width: 1.7rem;" src="assets/img/home.png" alt="Publico"></a></li>
+          <li><a href="/professor"><img style="width: 1.7rem;" src="assets/img/perfil.png" alt="Publico"></a></li>
+          <li><a href="/chat"><img style="width: 1.7rem;" src="assets/img/mensagem.png" alt="Publico"></a></li>
+          <li><a href="/notificacao"><img id = "notificacao" style="width: 1.7rem;" src="assets/img/menu/notificacao/.png" alt="Publico"></a></li>
+          <li><a href="/tarefa_respondida"><img style="width: 1.7rem;" src="assets/img/tarefa2.png" alt="Publico"></a> </li>
+          <li><a href="/duvidas_enviadas"><img id = "duvida" style="width: 1.7rem;" src="assets/img/menu/duvida/.png" alt="Publico"></a></li>
+          <li><a href="/alunos"><img id = "aluno" style="width: 1.7rem;" src="assets/img/menu/aluno/.png" alt="Publico"></a></li>
+          <li><a href="/turma"><img style="width: 1.7rem;" src="assets/img/turma.png" alt="Publico"></a></li>
+          <li><a href="/timeline_publico"><img style="width: 1.7rem;" src="assets/img/public.png" alt="Publico"></a></li>
+        </ul>
+      </nav>
+      <?php } else?>
+      <?php if($_SESSION['perfil'] == '1'){?>
+        <nav class="nav-menu float-right d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="/timeline"><img style="width: 1.7rem;" src="assets/img/home.png" alt="Publico"></a></li>
+          <li><a href="/aluno"><img style="width: 1.7rem;" src="assets/img/perfil.png" alt="Publico"></a></li>
+          <li><a href="/chat"><img style="width: 1.7rem;" src="assets/img/mensagem.png" alt="Publico"></a></li>
+          <li><a href="/notificacao"><img id = "notificacao" style="width: 1.7rem;" src="assets/img/menu/notificacao/0.png" alt="Notificação"></a></li>
+          <li><a href="/pergunta_respondida"><img style="width: 1.7rem;" src="assets/img/tarefa2.png" alt="Publico"></a> </li>
+          <li><a href="/meus_professor"><img style="width: 1.7rem;" src="assets/img/professor.png" alt="Publico"></a> </li>
+          <li><a href="/duvidas_respondidas" id = "duvida"><img style="width: 1.7rem;" src="assets/img/menu/duvida/0.png" alt="Publico"></a></li>
+          <li><a href="/turmas"><img style="width: 1.7rem;" src="assets/img/turma.png" alt="Publico"></a></li>
+          <li><a href="/timeline_publico"><img style="width: 1.7rem;" src="assets/img/public.png" alt="Publico"></a></li>
+          <li><a href="/pesquisar"><img style="width: 1.7rem;" src="assets/img/pesquisar.png" alt="Publico"></a></li>
+        </ul>
+      </nav>
+      <?php }?>
+      
+    </div>
+  </header><!-- End Header -->
+
+ 
+
+  <main>
+
+    <!-- ======= SENSSÃO ======= -->
+    <!-- ======= SENSSÃO ======= -->
+    <!-- ======= SENSSÃO ======= -->
+  
+    <section id="contact" class="contact">
+        <div class="row">
+            <div class="container">
+
+            <div class="row" id = "top">
+  
+
+    
+<div class="col-lg-7 m-auto col-md-12 col-sm-12">
+  
+
+    <!-- ======= AREA ONDE PODES VER TODAS AS POSTAGEM ======= -->
+
+    <div class="row">
+        <div class="col-lg-12" data-aos="fade-up">
+          <div class="row mt-0">
+            <div class="col-12">
+                <div class="col-lg-12" data-aos="fade-up" >
+                  <div>
+                  <!-- ======= CARD DE POSTAGEM ======= -->
+                  
+                  <?php
+                  if(count($this->view->lista_respostas) < 1)
+                  {
+                    ?>
+                    <center class = "mt-5">
+                        <img src="assets/img/vazio.png" alt="" style="margin-top: 20%;">
+                        <p><small>Ainda não recebeste nenhuma resposta!</small></p>
+                        </center>
+                       
+                    <?php } else { 
+                      foreach($this->view->lista_respostas as $key => $valor){?>
+                          <div class="row mb-2">
+                            <div class="col-12">
+                              <div class="card">
+
+                          <div class="row">
+                            <div class="col-12">
+                              <div style="margin: 2px;">
+                              <div class="card-header">
+                                  <div class="row">
+                                    <div class="col-2">
+                                    <img class="rounded-circle border border-primary" src="/fotos_de_perfil/<?= $_SESSION['foto_perfil']?>" style="width: 3rem; height: 3rem; object-fit: cover; height: 3rem; object-fit: cover;" />
+                                    </div>
+                                    <div class="col-10">
+                                      <h5 ><?= $_SESSION['nome'] ?> / <small class = "text-success">Pergunta Feita</small> </h5>
+                                    </div>
+                                  </div>
+                                </div>
+                                
+                                  
+                              </div>
+                            </div>
+                          </div>
+                          <h5 class = "ml-3"><b><?= $valor['titulo'] ?></b></h5>
+                          <p style="width: 100%;" class = "ml-3 mb-2">
+                                      <?= $valor['tweet'] ?>
+                                      </p>
+                                      <?php if($valor['imagem_carregada'] != 'indefinido' && $valor['pdf'] == 'indefinido'){  ?>
+                                      <img class = "card-img-top" src="/imagem_carregada/<?=  $valor['imagem_carregada']?>" />
+                                     
+                                      <?php }?>
+
+                                      <?php if($valor['pdf'] != 'indefinido'){ 
+                                    if($_SESSION['tema'] == 'layout'){
+                                    ?>
+                                    <img class = "card-img-top" src="/imagem_carregada/imagempdf.jpg" />
+                                      <div style = " background: #000000;">
+                                       <h5 class = "mx-2"><small><?= $valor['pdf_original'] ?></small></h5>
+                                       <p class = "mx-3 mt-0"><small><?= $valor['pdf_descricao'] ?></small></p>
+                                       <div>
+                                       <a href="./ficheiro_pdf/<?= $valor['pdf'] ?>" class = "btn btn-light mr-2"   style="width: 95%; margin: 10px; margin-top: -10px; " >
+                                           <b class = "text-primary">Baixar PDF</b>     
+                                       </a>
+                                       </div>
+                                      </div>
+                                      <?php }else{?>
+                                        <img class = "card-img-top" src="/imagem_carregada/imagempdf.jpg" />
+                                        <div style = " background: #ffaa0d;">
+                                       <h5 class = "mx-2"><small><?= $valor['pdf_original'] ?></small></h5>
+                                       <p class = "mx-3 mt-0"><small><?= $valor['pdf_descricao'] ?></small></p>
+                                       <div>
+                                       <a href="./ficheiro_pdf/<?= $valor['pdf'] ?>" class = "btn btn-light mr-2"   style="width: 95%; margin: 10px; margin-top: -10px; " >
+                                           <b class = "text-primary">Baixar PDF</b>     
+                                       </a>
+                                       </div>
+                                      </div>
+                                      <?php }}?>
+                          <div class="row m-2">
+                            <div class="col-12">
+                              <div >
+                                
+                                        
+                                        <div class="card-header">
+                                  <div class="row">
+                                    <div class="col-2">
+                                    <img class="rounded-circle border border-primary" src="/fotos_de_perfil/<?= $valor['nome_foto']?>" style="width: 3rem; height: 3rem; object-fit: cover; height: 3rem; object-fit: cover;" />
+                                    </div>
+                                    <div class="col-9">
+                                      <h5 ><?= $valor['nome'] ?> / <small class = "text-success">Resposta Enviada</small> </br> <small><?= $valor['data_resposta'] ?></small> </h5>
+                                    </div>
+                                    
+                                  
+                                   
+                                    
+                                    
+                                  </div>
+                                </div>
+                                
+                                  <div style="margin: 10px;">
+                                    <div class="card-header">
+                                      <p style="width: 100%;">
+                                        <?= $valor['resposta'] ?>
+                                      </p>
+                                    </div>
+                                  </div>
+                                  
+                                <div class="row">
+                                  
+                                    <div class="col-12">
+                                        <div class = "text-center" id = "postagem_<?= $valor['id'] ?>" >
+
+                                            <button class = "btn btn-success" style="width: 95%; margin: 10px; " type="submit"  >
+                                              <img style="width: 1rem;" class="text-center" src="assets/img/certo.png" alt="">
+                                            </button>
+                                          
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                </div>
+                                        
+                                
+                              </div>
+                            </div>
+                          </div>
+                              </div>
+                            </div>
+                          </div>
+                <?php  }}?>
+           <!-- ======= FIM DO CARD DE POSTAGEM ======= -->
+
+                 
+            </div>
+          </div>
+
+        </div>
+      </div>  
+  <!-- ======= FIM DA AREA ONDE VC VE TODAS AS POSTAGEM ======= -->
+
+
+  </div>
+  <!-- ======= FIM DA AREA DOS POST ======= -->
+
+
+</div>
+
+</div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+        <!-- ======= SENSSÃO ======= -->
+        <!-- ======= SENSSÃO ======= -->
+        <!-- =======   FIM   ======= -->
+
+    
+
+    
+
+    
+
+    
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/jquery-sticky/jquery.sticky.js"></script>
+  <script src="assets/vendor/venobox/venobox.min.js"></script>
+  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="assets/vendor/counterup/counterup.min.js"></script>
+  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>

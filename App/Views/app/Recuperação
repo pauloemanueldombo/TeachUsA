@@ -1,0 +1,201 @@
+
+                    $toda_postagem ="";
+                    $pdf = "";
+                    $connt = 0;
+                    $vermais = " ";
+                    $numero_postagem = 7;
+                    if(count($postagem) > 7)
+                    {
+                        $vermais = ' <div class="row mb-3">
+                        <div class="col-12 m-auto">
+                        <center>
+                            <button style = "width: 90%" class = "btn btn-light border border-primary" onclick = "get_postagem_professor('.($numero_postagem + 1).')"><b>Ver mais...</b></button>
+                            </center>
+                        </div>
+                  </div>';
+                    }
+                    if(count($postagem) < 1){
+                        exit('
+                        
+                        <center>
+                        <img src="assets/img/vazio.png" alt="">
+                        <h5>Ainda não tens nenhuma publicação!</h5>
+                        </center>
+                        <center>
+                        <a href = "/sair"><b>Terminar sessão</b></a>
+                        </center>
+                        
+                        ');
+                    }else{
+                        $cont = 0;
+            foreach($postagem as $key => $valor){ 
+                $numero_postagem = $_POST['numero_p'];
+                $connt++;
+                if($connt > $numero_postagem){
+                    continue;
+                }
+                $editar_apagar = "";
+                $imagemcarregada = "";
+                $estadolike = "";
+                $naosei = "";
+                if($valor['id_usuario'] == $_SESSION['id']){
+                    $texto = "'".$valor['tweet']."'";
+                    $editar_apagar = '
+                    <div class="col-3">
+                    <div class="row">
+                        <div class="col-2">
+                            <img onclick = "deletar('.$valor['id'].')"  src="assets/img/delete.png" style="width: 1rem;" />
+                        </div>
+                        <div class="col-2">
+                            <a onclick = "editar('.$valor['id'].','.$texto.')"><img  src="assets/img/edit.png" style="width: 1rem;" /></a>
+                        </div>
+                       
+                    </div>
+                  </div>
+                    ';
+                    }
+                    if($valor['imagem_carregada'] != "indefinido"){ 
+                        $imagemcarregada ='
+                        <input id = "imagem_carregada_responder'.$valor['id'].'" type="hidden" value="'.$valor['pdf'].'">
+                        <img class = "card-img-top" src="/imagem_carregada/'.$valor['imagem_carregada'].'" />';
+
+                          
+                       }
+                       if($valor['pdf'] != "indefinido"){
+                           $pdf = '
+                           <input id = "pdf_responder'.$valor['id'].'" type="hidden" value="'.$valor['pdf'].'">
+                           <input id = "pdf_descricao_responder'.$valor['id'].'" type="hidden" value="'.$valor['pdf_descricao'].'">
+                           <input id = "pdf_original_responder'.$valor['id'].'" type="hidden" value="'.$valor['pdf_original'].'">
+                           <img class = "card-img-top" src="/imagem_carregada/imagempdf.jpg" />
+                           <div style = " background: #ffaa0d;">
+                           <h5 class = "mx-2"><small>'.$valor['pdf_original'].'</small></h5>
+                           <p class = "mx-3 mt-0"><small>'.$valor['pdf_descricao'].'</small></p>
+                           <div>
+                           <a href="./ficheiro_pdf/'.$valor['pdf'].'" class = "btn btn-light mr-2"   style="width: 95%; margin: 10px; margin-top: -10px; " >
+                               <b class = "text-primary">Baixar PDF</b>     
+                           </a>
+                           </div>
+                          </div>';
+                        }
+                     if ($valor['estado_like'] == 0) {
+                         $estadolike = '<div class="col-6">
+                         <div class = "text-center">
+                             <button class = "btn btn-light border border-primary" id = "like'.$valor['id'].'"   style="width: 90%; margin: 10px; " >
+                                 <p style="width: 90%; margin: 0px; " id = "numeroLike'.$valor['id'].'"> '.$like[$cont].' <img onclick = "like('.$valor['id'].','.$valor['id_usuario'].')"  src="assets/img/coracao1.png" style="width: 1.4rem;" /></p>
+                             </button>
+                         </div>
+                     </div>';
+                     }
+                     if ($valor['estado_like'] == 1) {
+                        $estadolike = '<div class="col-6">
+                        <div class = "text-center">
+                              <button class = "btn btn-light border border-primary" id = "like'.$valor['id'].'"   style="width: 90%; margin: 10px; " >
+                                  <p style="width: 90%; margin: 0px; " id = "numeroLike'.$valor['id'].'">'.$like[$cont].' <img onclick = "remover_like('.$valor['id'].')"  src="assets/img/coracao.png" style="width: 1.4rem;" /></p>
+                              </button>
+
+                        </div>
+                    </div>';
+                    }
+                     if($valor['id_usuario'] != $_SESSION['id']){
+                        $naosei = '
+                            <div class = "row">
+                                '.$estadolike.'
+                                <div class="col-6">
+                                      <div class = "text-center">
+                                            <button class = "btn btn-light border border-primary" id = "like'.$valor['id'].'"   style="width: 90%; margin: 10px; " onclick = "salvar('.$valor['id'].','.$valor['id_usuario'].')">
+                                                <p style="width: 90%; margin: 0px; " id = "numeroSalvar'.$valor['id'].'"> '.$arquivado[$cont].'<img  src="assets/img/salve.png" style="width: 1rem;" /></p>  
+                                                
+                                            </button>
+                                      </div>
+                                  </div>
+                                  
+                              </div> 
+                                <div class="row">
+                                  
+                                    <div class="col-12">
+                                        <div class = "text-center" id = "postagem_'.$valor['id'].'" >
+                                          
+                                            <button class = "btn btn-light border border-primary" onclick = "responder('.$valor['id'].','.$valor['id_usuario'].');"  style="width: 95%; margin: 10px; " type="submit"  >
+                                              <img style="width: 1.5rem;" class="text-center" src="assets/img/responder2.png" alt="">
+                                            </button>
+                                          
+                                         
+                                        </div>
+                                    </div>
+                            </div>
+                        ';
+                     }else{
+                         $naosei = '
+                         <div class = "row">
+                         '.$estadolike.'
+                         <div class="col-6">
+                                      <div class = "text-center">
+                                            <button class = "btn btn-light border border-primary" id = "like'.$valor['id'].'"   style="width: 90%; margin: 10px; " onclick = "salvar('.$valor['id'].','.$valor['id_usuario'].')">
+                                                <p style="width: 90%; margin: 0px; " id = "numeroSalvar'.$valor['id'].'">'.$arquivado[$cont].'<img  src="assets/img/salve.png" style="width: 1rem;" /></p>  
+                                                
+                                            </button>
+                                      </div>
+                                  </div>
+                         </div>
+                         ';
+
+                     }
+
+            $toda_postagem = $toda_postagem .'
+                          <div class="row mb-3" id = "postagem'.$valor['id'].'">
+                            <div class="col-12">
+                              <div class="card">
+                                <div class="card-header">
+                                  <div class="row">
+                                    <div class="col-2">
+                                        <img class="rounded-circle border border-primary" src="/fotos_de_perfil/'.$valor['nome_foto'].'" style="width: 3rem; height: 3rem; object-fit: cover;" />
+                                    </div>
+                                    <div class="col-7">
+                                      <h5 >'.$valor['nome'].' </br> <small> '.$valor['data'].'</small> </h5>
+                                    </div>'.
+                                    $editar_apagar
+                                    .'
+                                    
+                                  </div>
+                                </div>
+                                 <div class="container mb-0">
+                                 <h5>'.$valor['titulo'].'</h5>
+                                 </div>
+                                  <div class = "mx-3">
+                                    <div  id = "post_'.$valor['id'].'">
+                                      <p style="width: 100%;">
+                                      '.$valor['tweet'].'
+                                      </p>
+                                     
+                                    </div>
+                                  </div>
+                                  '.$imagemcarregada.'
+                                  '.$pdf.'
+                                      <div>
+                                  </div>
+                                
+                                  '.$naosei.'
+                              </div>
+                            </div>
+                    </div>
+            ';
+            $cont++;
+            }
+            exit($toda_postagem.'
+            </div>
+            </div>
+         
+      </div>  
+      </div>  
+      </div>  
+  <!-- ======= FIM DA AREA ONDE VC VE TODAS AS POSTAGEM ======= -->
+            '. $vermais .'
+  <center>
+  <a href = "/sair"><b>Terminar sessão</b></a>
+  </center>
+  
+
+  
+  
+            
+            ');}

@@ -1,0 +1,628 @@
+<div class = "modalalert">
+			<center>
+			<div class="row dentromodal">
+				<div class="col-12">
+				<div class="row">
+						<div class="col-12 m-auto">
+							<img src="assets/img/erro_conexao.png" alt="" style="width: 3rem;">
+						</div>
+					</div>
+				<div class="row">
+						<div class="col-12 m-auto">
+							<h4 id = "mensagem_modal" class = "text-center">DESEJAS APAGAR</h4>
+						</div>
+					</div>
+					<div id = "confirmar" class="row">
+					
+					</div>
+				</div>
+			</div>
+			</center>
+			</div>
+
+  <header id="header">
+    <div class="container">
+
+    <div class="logo float-left">
+        <img src="./img/teach_header.png" alt="" style="width: 10rem;"> 
+      </div>
+      
+      <nav class="nav-menu float-right d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="/timeline_professor"><img style="width: 1.7rem;" src="assets/img/home2.png" alt="Publico"></a></li>
+          <li><a href="/professor"><img style="width: 1.7rem;" src="assets/img/perfil.png" alt="Publico"></a></li>
+          <li><a href="/chat"><img id = "mensagem" style="width: 1.7rem;" src="assets/img/mensagem.png" alt="Publico"></a></li>
+          <li><a href="/notificacao"><img id = "notificacao" style="width: 1.7rem;" src="assets/img/menu/notificacao/0.png" alt="Publico"></a></li>
+          <li><a href="/tarefa_respondida"><img id = "tarefa" style="width: 1.7rem;" src="assets/img/menu/Tarefa/0.png" alt="Publico"></a> </li>
+          <li><a href="/duvidas_enviadas"><img id = "duvida" style="width: 1.7rem;" src="assets/img/menu/duvida/0.png" alt="Publico"></a></li>
+          <li><a href="/alunos"><img id = "aluno" style="width: 1.7rem;" src="assets/img/menu/aluno/0.png" alt="Publico"></a></li>
+          <li><a href="/turma"><img style="width: 1.7rem;" src="assets/img/turma.png" alt="Publico"></a></li>
+          <li><a href="/timeline_publico"><img style="width: 1.7rem;" src="assets/img/public.png" alt="Publico"></a></li>
+        </ul>
+      </nav>
+      
+      <!-- .nav-menu -->
+
+    </div>
+  </header>
+  <!-- ======= Hero Section ======= -->
+
+  <section id="contact" class="contact">
+
+            <div class="row" id = "top">
+ 
+    <div class="col-lg-3 d-none d-lg-block containerscro" id = "fixo">
+      <div class="mb-3">
+        <div class="row m-3" >
+          <div class="col-12">
+            <div class=" align-items-stretch text-center"  data-aos-delay="100">
+                  <a href="/professor"><img class="rounded-circle" src="/fotos_de_perfil/<?=  $this->view->foto_perfil?>" style="width: 6rem; height: 6rem; object-fit: cover;" /></a>
+                  <h3 class = "d-none d-lg-block">Meu Perfil</h3>
+                  <p class = "d-none d-lg-block"><?=  $_SESSION['nome'] ?></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3">
+            <div class="row m-2">
+              <div class="col-3">
+                <img src="assets/img/perfil2.png" alt="" style="width: 2rem; ">
+              </div>
+              <div class="col-5">
+                  <center><b>Perfil</b></center>
+              </div>
+              <div class="col-3">
+                <a href="/professor"><img src="assets/img/ir.png" alt="" style="width: 2rem; "></a>
+              </div>
+            </div>
+      </div>
+
+      <div class="card mb-3">
+            <div class="row m-2">
+              <div class="col-3">
+                <img src="assets/img/salve2.png" alt="" style="width: 2rem; ">
+              </div>
+              <div class="col-5">
+                  <center><b>Arquivado</b></center>
+              </div>
+              <div class="col-3">
+                <a href="/lista_arquivado"><img src="assets/img/ir.png" alt="" style="width: 2rem; "></a>
+              </div>
+            </div>
+      </div>
+
+      <div class="card mb-3">
+            <div class="row m-2">
+              <div class="col-3">
+                <img src="assets/img/mensagem2.png" alt="" style="width: 2rem; ">
+              </div>
+              <div class="col-5">
+                  <center><b>Mensagem</b></center>
+              </div>
+              <div class="col-3">
+                <a href="/chat"><img src="assets/img/ir.png" alt="" style="width: 2rem; "></a>
+              </div>
+            </div>
+      </div>
+
+      <div class="card mb-3">
+            <div class="row m-2">
+              <div class="col-3">
+                <img src="assets/img/notificacao2.png" alt="" style="width: 2rem; ">
+              </div>
+              <div class="col-5">
+                  <center><b>Notificação</b></center>
+              </div>
+              <div class="col-3">
+                <a href="/notificacao"><img src="assets/img/ir.png" alt="" style="width: 2rem; "></a>
+              </div>
+            </div>
+      </div>
+
+      <div class="card mb-3">
+            <div class="row m-2">
+              <div class="col-3">
+                <img src="assets/img/tarefa2.png" alt="" style="width: 2rem; ">
+              </div>
+              <div class="col-5">
+                  <center><b>Tarefa</b></center>
+              </div>
+              <div class="col-3">
+                <a href="/tarefa_respondida"><img src="assets/img/ir.png" alt="" style="width: 2rem; "></a>
+              </div>
+            </div>
+      </div>
+
+      <div class="card mb-3">
+            <div class="row m-2">
+              <div class="col-3">
+                <img src="assets/img/estudante2.png" alt="" style="width: 2rem; ">
+              </div>
+              <div class="col-5">
+                  <center><b>Alunos</b></center>
+              </div>
+              <div class="col-3">
+                <a href="/alunos"><img src="assets/img/ir.png" alt="" style="width: 2rem; "></a>
+              </div>
+            </div>
+      </div>
+
+      <div class="card mb-3">
+            <div class="row m-2">
+              <div class="col-3">
+                <img src="assets/img/duvida3.png" alt="" style="width: 2rem; ">
+              </div>
+              <div class="col-5">
+                  <center><b>Duvidas</b></center>
+              </div>
+              <div class="col-3">
+                <a href="/duvidas_enviadas"><img src="assets/img/ir.png" alt="" style="width: 2rem; "></a>
+              </div>
+            </div>
+      </div>
+
+      <div class="card mb-3">
+            <div class="row m-2">
+              <div class="col-3">
+                <img src="assets/img/turma2.png" alt="" style="width: 2rem; ">
+              </div>
+              <div class="col-5">
+                  <center><b>Turma</b></center>
+              </div>
+              <div class="col-3">
+                <a href="/turma"><img src="assets/img/ir.png" alt="" style="width: 2rem; "></a>
+              </div>
+            </div>
+      </div>
+
+      <div class="card mb-3">
+            <div class="row m-2">
+              <div class="col-3">
+                <img src="assets/img/public2.png" alt="" style="width: 2rem; ">
+              </div>
+              <div class="col-5">
+                  <center><b>Publico</b></center>
+              </div>
+              <div class="col-3">
+                <a href="/timeline_publico"><img src="assets/img/ir.png" alt="" style="width: 2rem; "></a>
+              </div>
+            </div>
+      </div>
+
+      <div class="card mb-3">
+            <div class="row m-2">
+              <div class="col-3">
+                <img src="assets/img/sair.png" alt="" style="width: 2rem; ">
+              </div>
+              <div class="col-5">
+                  <center><b>Sair</b></center>
+              </div>
+              <div class="col-3">
+              <img onclick = "abrir_modal('DESEJAS SAIR?')" src="assets/img/ir.png" alt="" style="width: 2rem; cursor: pointer;">
+              </div>
+            </div>
+      </div>
+     
+
+
+     
+    </div>
+
+    <div class="col-lg-1 d-none d-sm-block" id = "principal"></div>
+
+
+<!-- =================================================================== -->
+<!-- ======================= MENU DE PUBLICIDADE======================== -->
+<!-- =================================================================== -->
+<div class="col-lg-3 d-none d-lg-block" id = "fixoc">
+  <b>Meus Alunos</b>
+      <div class="mb-3">
+      <?php
+                  if(count($this->view->lista_alunos) < 1)
+                  {
+                    ?>
+                    <center class = "mt-5">
+                        <img src="assets/img/vazio.png" alt="" style="margin-top: 40%;">
+                        <p><small>Ainda não tens nenhum aluno para listar!</small></p>
+                        </center>
+                       
+                    <?php } else {  foreach($this->view->lista_alunos as $key => $valor){ ?>
+                        <div class="row mt-1">
+                          <div class="col-2  mr-2">
+                            <img class="rounded-circle border border-primary m-1" src="/fotos_de_perfil/<?= $valor['nome_foto'] ?>" style="width: 2.5rem; height: 2.5rem; object-fit: cover;" />
+                          </div>
+                        <div class="col-7">
+                          <p style = "margin-top: 10%;" class = "d-none d-lg-block"><b><?= $valor['nome'] ?></b></p>  
+                        </div>
+                        <div class="col-2">    
+                          <a href="/aluno?id_aluno=<?= $valor['id'] ?>">
+                            <img src="/assets/img/sobre_pessoal/entrar.png" style="width: 2rem; margin-top: 60%;" />
+                          </div>
+                          </a>
+                        </div>
+                        <hr>
+                    <?php  } }?>
+    
+
+      </div>
+  </div>
+
+  <!-- ======= AREA DOS POST ======= -->
+  <!-- ======= AREA DOS POST ======= -->
+  <!-- ======= AREA DOS POST ======= -->
+
+<div class="col-lg-5 col-md-12 col-sm-12" >
+
+  <div class="row">
+        <div class="col-lg-12" >
+          
+          <div class="row mt-0">
+            <div class="col-12">
+              
+                <div class="col-lg-12"  >
+                  <div>
+                  <!-- ======= CARD DE POSTAGEM ======= -->
+                  
+                  <div class="row mb-3">
+
+<div class=" col-lg-3 col-md-3 col-sm-3 d-none d-sm-block" >
+  <div class="member">
+    <div class="pic"><img style = "border-radius: 20%;" src="assets/img/team/team-1.jpg" class="img-fluid border-primary" alt=""></div>
+    <div class="member-info">
+    </div>
+  </div>
+</div>
+
+<div class="col-lg-3 col-md-3 col-sm-3 d-none d-sm-block"  data-aos-delay="100">
+  <div class="member">
+    <div class="pic"><img style = "border-radius: 20%;" src="assets/img/team/team-2.jpg" class="img-fluid" alt=""></div>
+    <div class="member-info">
+    </div>
+  </div>
+</div>
+
+<div class="col-lg-3 col-md-3 col-sm-3 d-none d-sm-block"  data-aos-delay="200">
+  <div class="member">
+    <div class="pic"><img style = "border-radius: 20%;" src="assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
+    <div class="member-info">
+    </div>
+  </div>
+</div>
+
+<div class="col-lg-3 col-md-3 col-sm-3 d-none d-sm-block"  data-aos-delay="300">
+  <div class="member">
+    <div class="pic"><img style = "border-radius: 20%;" src="assets/img/team/team-4.jpg" class="img-fluid" alt=""></div>
+    <div class="member-info">
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+                      <form action="/tweet" method="post" enctype = "multipart/form-data">
+                        <div class="row mb-3">
+                            <div class="col-12">
+                              <div class="card">
+                                  
+                                    <div class="card-body">
+                                        <div class="row mb-2">
+                                            <div class="col-4">
+                                                <select id = "privacidade" class = "form-control" name="id_tipo">
+                                                  <option value="2">Publica</option>
+                                                  <option value="1">Privada</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-1 mr-4">
+                                              <!-- <a href="./ficheiro_pdf/A_Ditadura_Da_Beleza_E_A_Revolucao_Das_Mulheres_-_Augusto_Cury.pdf.zip">Download</a> -->
+                                              <input type='file' name="imagem" accept="image/x-png,image/jpeg" id="imagem" hidden />
+                                              <div>
+                                                  <label for="imagem"><img class=" border-primary" src="/assets/img/img.png" style="width: 2.5rem;" /></label>
+                                              </div>
+                                            </div>
+
+                                            <div class="col-2">
+                                              <!-- <a href="./ficheiro_pdf/A_Ditadura_Da_Beleza_E_A_Revolucao_Das_Mulheres_-_Augusto_Cury.pdf.zip">Download</a> -->
+                                              <input type='file' name="pdf"  id="pdf" hidden />
+                                              <div>
+                                                  <label for="pdf"><img class=" border-primary" src="/assets/img/file.png" style="width: 2.5rem;" /></label>
+                                              </div>
+                                            </div>
+                                           
+
+
+                                          
+                                        </div>
+                                        
+                                        
+                                        <div class="row mb-2">
+                                            <div class="col-12">
+                                                <input id = "titulo" class = "form-control" name = "titulo" type="text" placeholder = "Título">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <textarea id = "postagem" class="form-control" name="tweet" rows="3" data-msg="Escreva alguma dúvida!" placeholder=""></textarea>
+
+                                            </div>
+                                        </div>
+                                        <small><h5 id = "mensagem" class = "text-success text-center"></h5></small>
+                                    </div>
+                                 
+                                   
+                                <div class="row">
+                               
+                                    <div class="col-12">
+                                        <div >
+                                        
+                                        <div class="text-center mb-2">
+                                       
+                                        <button style = " width: 50%; margin-top: -20px;" class = "btn btn-primary" type="submit">
+                                          Carregar Publicação
+                                        </button>
+                                        </div>
+
+                                         
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-7 m-auto">
+                                    <?php if(isset($_GET['men'])){  ?>
+                                        <small class = "text-danger">O teu conteúdo não foi publicado Tente novamente</small>
+                                    <?php } ?>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                      </div>
+      </form>
+      
+                      
+                   
+                
+           <!-- ======= FIM DO CARD DE POSTAGEM ======= -->
+
+                  </div>
+                </div>
+            </div>
+          </div>
+
+        </div>
+      </div>  
+      
+      
+
+    <!-- ======= AREA ONDE PODES VER TODAS AS POSTAGEM ======= -->
+
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-12">
+                <div class="col-lg-12"  >
+                  <div>
+                  <!-- ======= CARD DE POSTAGEM ======= -->
+                  <?php if($_SESSION['limite'] != 0){?>
+                    <div class ="row mb-3">
+                        <div class="col-12">
+                          <a href="/vermenus">
+                            <button class = "btn btn-light border-primary" style = "width: 100%"> Ver Anterior </button>
+                          </a>
+                        </div>
+                    </div>
+                  <?php }?>
+                  <?php
+                  if(count($this->view->tweet) < 1)
+                  {
+                    ?>
+                    <center class = "mt-5">
+                        <img src="assets/img/vazio.png" alt="" >
+                        <p><small>Ainda não tens nenhuma publicação!</small></p>
+                        </center>
+                       
+                    <?php } else {
+                          $cont = 0;
+                          foreach($this->view->tweet as $key => $valor){ 
+                            if($cont >= $_SESSION['limite'] && $cont < $_SESSION['limite'] + 7){
+                            ?>
+                                  <div class="row mb-3" id = "postagem<?= $valor['id'] ?>">
+                                    <div class="col-12">
+                                      <div class="card">
+                                        <div class="card-header">
+                                          <div class="row">
+                                            <div class="col-2">
+                                                <img class="rounded-circle border border-primary" src="/fotos_de_perfil/<?=  $valor['nome_foto']?>" style="width: 3rem; height: 3rem; object-fit: cover; height: 3rem; object-fit: cover;" />
+                                            </div>
+                                            <div class="col-7">
+                                              <h5 ><?= $valor['nome'] ?> </br> <small> <?=  $valor['data']?></small> </h5>
+                                            </div>
+                                            <?php if($valor['id_usuario'] == $_SESSION['id']){  ?>
+                                            <div class="col-3">
+                                              <div class="row">
+                                              <div class="col-2">
+                                              <img onclick = "apagar_modal(<?= $valor['id'] ?>)"  src="assets/img/delete.png" style="width: 1rem;" />
+                                                </div>
+                                                <div class="col-2">
+                                                    <a onclick = "editar(<?= $valor['id'] ?>,'<?= $valor['tweet'] ?>')"><img  src="assets/img/edit.png" style="width: 1rem;" /></a>
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <?php  }?>
+                                            
+                                          </div>
+                                        </div>
+                                         <div class="container mb-0">
+                                         <h5><b><?= $valor['titulo'] ?></b></h5>
+                                         </div>
+                                         
+                                            <div class="card-header" id = "post_<?= $valor['id'] ?>">
+                                              <p style="width: 100%;">
+                                                <?= $valor['tweet'] ?>
+                                              </p>
+                                              
+                                            </div>
+                                            <input id = "imagem_carregada_responder<?= $valor['id'] ?>" type="hidden" value="<?= $valor['imagem_carregada'] ?>">
+                                            <input id = "pdf_responder<?= $valor['id'] ?>" type="hidden" value="<?= $valor['pdf'] ?>">
+                                            <input id = "pdf_descricao_responder<?= $valor['id'] ?>" type="hidden" value="<?= $valor['pdf_descricao'] ?>">
+                                            <input id = "pdf_original_responder<?= $valor['id'] ?>" type="hidden" value="<?= $valor['pdf_original'] ?>">
+
+                                            <?php if($valor['imagem_carregada'] != 'indefinido'){  ?>
+                                      <img class = "card-img-top" src="/imagem_carregada/<?=  $valor['imagem_carregada']?>" />
+                                     
+                                  <?php }?>
+                                  <?php if($valor['pdf'] != 'indefinido'){ 
+                                    if($_SESSION['tema'] == 'layout'){
+                                    ?>
+                               
+
+                                    <img class = "card-img-top" src="/imagem_carregada/imagempdf.jpg" />
+                                      <div style = " background: #000000;">
+                                       <h5 class = "mx-2"><small><?= $valor['pdf_original'] ?></small></h5>
+                                       <p class = "mx-3 mt-0"><small><?= $valor['pdf_descricao'] ?></small></p>
+                                       <div>
+                                       <a href="./ficheiro_pdf/<?= $valor['pdf'] ?>" class = "btn btn-light mr-2"   style="width: 95%; margin: 10px; margin-top: -10px; " >
+                                           <b class = "text-primary">Baixar PDF</b>     
+                                       </a>
+                                       </div>
+                                      </div>
+                                      <?php }else{?>
+                                        <img class = "card-img-top" src="/imagem_carregada/imagempdf.jpg" />
+                                        <div style = " background: #ffaa0d;">
+                                       <h5 class = "mx-2"><small><?= $valor['pdf_original'] ?></small></h5>
+                                       <p class = "mx-3 mt-0"><small><?= $valor['pdf_descricao'] ?></small></p>
+                                       <div>
+                                       <a href="./ficheiro_pdf/<?= $valor['pdf'] ?>" class = "btn btn-light mr-2"   style="width: 95%; margin: 10px; margin-top: -10px; " >
+                                           <b class = "text-primary">Baixar PDF</b>     
+                                       </a>
+                                       </div>
+                                      </div>
+                                      <?php }}?>
+                                      <?php if($valor['id_usuario'] != $_SESSION['id']){  ?>
+                                        <div class="row">
+                                  <?php if ($valor['estado_like'] == 0) {?>
+                                  <div class="col-6">
+                                      <div class = "text-center">
+                                            <button class = "btn btn-light border border-primary" id = "like<?= $valor['id'] ?>"   style="width: 90%; margin: 10px; " >
+                                                <p style="width: 90%; margin: 0px; " id = "numeroLike<?= $valor['id'] ?>"><?= $this->view->num_like[$cont] ?> <img onclick = "like(<?= $valor['id'] ?>,<?= $valor['id_usuario'] ?>)"  src="assets/img/coracao1.png" style="width: 1.4rem;" /></p>
+                                            </button>
+
+                                      </div>
+                                  </div>
+                                  <?php }?>
+                                  <?php if ($valor['estado_like'] == 1) {?>
+                                  <div class="col-6">
+                                      <div class = "text-center">
+                                            <button class = "btn btn-light border border-primary" id = "like<?= $valor['id'] ?>"   style="width: 90%; margin: 10px; " >
+                                                <p style="width: 90%; margin: 0px; " id = "numeroLike<?= $valor['id'] ?>"><?= $this->view->num_like[$cont] ?> <img onclick = "remover_like(<?= $valor['id'] ?>)"  src="assets/img/coracao.png" style="width: 1.4rem;" /></p>
+                                            </button>
+
+                                      </div>
+                                  </div>
+                                  
+                                  <?php }?>
+
+                                  <div class="col-6">
+                                      <div class = "text-center">
+                                            <button class = "btn btn-light border border-primary" id = "like<?= $valor['id'] ?>"   style="width: 90%; margin: 10px; " onclick = "salvar(<?= $valor['id'] ?>,<?= $valor['id_usuario'] ?>)">
+                                                <p style="width: 90%; margin: 0px; " id = "numeroSalvar<?= $valor['id'] ?>"><?= $this->view->num_arquivado[$cont] ?> <img  src="assets/img/salve.png" style="width: 1.4rem;" /></p>  
+                                                
+                                            </button>
+                                      </div>
+                                  </div>
+                                  
+                              </div> 
+                              
+                                        <div class="row">
+                                          
+                                            <div class="col-12">
+                                                <div class = "text-center" id = "postagem_<?= $valor['id'] ?>" >
+                                                  
+                                                    <button class = "btn btn-light border border-primary" onclick = "responder(<?= $valor['id'] ?>,<?= $valor['id_usuario'] ?>);"  style="width: 95%; margin: 10px; " type="submit"  >
+                                                      <img style="width: 1.5rem;" class="text-center" src="assets/img/responder2.png" alt="">
+                                                    </button>
+                                                  
+                                                 
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php  } else{?>
+                                          <div class="row">
+                                  
+                                          <?php if ($valor['estado_like'] == 0) {?>
+                                  <div class="col-6">
+                                      <div class = "text-center">
+                                            <button class = "btn btn-light border border-primary" id = "like<?= $valor['id'] ?>"   style="width: 90%; margin: 10px; " >
+                                                <p style="width: 90%; margin: 0px; " id = "numeroLike<?= $valor['id'] ?>"><?= $this->view->num_like[$cont] ?> <img onclick = "like(<?= $valor['id'] ?>,<?= $valor['id_usuario'] ?>)"  src="assets/img/coracao1.png" style="width: 1.4rem;" /></p>
+                                            </button>
+
+                                      </div>
+                                  </div>
+                                  <?php }?>
+                                  <?php if ($valor['estado_like'] == 1) {?>
+                                  <div class="col-6">
+                                      <div class = "text-center">
+                                            <button class = "btn btn-light border border-primary" id = "like<?= $valor['id'] ?>"   style="width: 90%; margin: 10px; " >
+                                                <p style="width: 90%; margin: 0px; " id = "numeroLike<?= $valor['id'] ?>"><?= $this->view->num_like[$cont] ?> <img onclick = "remover_like(<?= $valor['id'] ?>)"  src="assets/img/coracao.png" style="width: 1.4rem;" /></p>
+                                            </button>
+
+                                      </div>
+                                  </div>
+                                  <?php }?>
+                                  <div class="col-6">
+                                      <div class = "text-center">
+                                            <button class = "btn btn-light border border-primary" id = "like<?= $valor['id'] ?>"   style="width: 90%; margin: 10px; " onclick = "salvar(<?= $valor['id'] ?>,<?= $valor['id_usuario'] ?>)">
+                                                <p style="width: 90%; margin: 0px; " id = "numeroSalvar<?= $valor['id'] ?>"><?= $this->view->num_arquivado[$cont] ?> <img  src="assets/img/salve.png" style="width: 1rem;" /></p>  
+                                                
+                                            </button>
+                                      </div>
+                                  </div>
+                                  
+                              </div> 
+                                      <?php  }?>
+                                      </div>
+                                    </div>
+                            </div>
+                        <?php }$cont++; }}?>
+
+                 
+                  </div>
+                  <?php if(count($this->view->tweet) > 10){
+                    
+                    ?>
+                    <div class ="row">
+                        <div class="col-12">
+                          <a href="/vermais">
+                            <button class = "btn btn-light border-primary" style = "width: 100%"> Ver mais </button>
+                          </a>
+                        </div>
+                    </div>
+                  <?php }?>
+  
+  </section>
+
+
+    
+
+    
+
+  </main><!-- End #main -->
+
+  
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/jquery-sticky/jquery.sticky.js"></script>
+  <script src="assets/vendor/venobox/venobox.min.js"></script>
+  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="assets/vendor/counterup/counterup.min.js"></script>
+  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>

@@ -1,0 +1,207 @@
+
+
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="container">
+
+    <div class="logo float-left">
+        <img src="./img/teach_header.png" alt="" style="width: 10rem;"> 
+      </div>
+      <?php if($_SESSION['perfil'] == '2'){ ?>
+        <nav class="nav-menu float-right d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="/timeline_professor"><img style="width: 1.7rem;" src="assets/img/home.png" alt="Publico"></a></li>
+          <li><a href="/professor"><img style="width: 1.7rem;" src="assets/img/perfil.png" alt="Publico"></a></li>
+          <li><a href="/chat"><img style="width: 1.7rem;" src="assets/img/mensagem.png" alt="Publico"></a></li>
+          <li><a href="/notificacao"><img style="width: 1.7rem;" src="assets/img/notificacao2.png" alt="Publico"></a></li>
+          <li><a href="/tarefa_respondida"><img id = "tarefa" style="width: 1.7rem;" src="assets/img/menu/Tarefa/0.png" alt="Publico"></a> </li>
+          <li><a href="/duvidas_enviadas"><img id = "duvida" style="width: 1.7rem;" src="assets/img/menu/duvida/0.png" alt="Publico"></a></li>
+          <li><a href="/alunos"><img id = "aluno" style="width: 1.7rem;" src="assets/img/menu/aluno/0.png" alt="Publico"></a></li>
+          <li><a href="/turma"><img style="width: 1.7rem;" src="assets/img/turma.png" alt="Publico"></a></li>
+          <li><a href="/timeline_publico"><img style="width: 1.7rem;" src="assets/img/public.png" alt="Publico"></a></li>
+        </ul>
+      </nav>
+      <?php } else?>
+      <?php if($_SESSION['perfil'] == '1'){?>
+        <nav class="nav-menu float-right d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="/timeline"><img style="width: 1.7rem;" src="assets/img/home.png" alt="Publico"></a></li>
+          <li><a href="/aluno"><img style="width: 1.7rem;" src="assets/img/perfil.png" alt="Publico"></a></li>
+          <li><a href="/chat"><img style="width: 1.7rem;" src="assets/img/mensagem.png" alt="Publico"></a></li>
+          <li><a href="/notificacao"><img style="width: 1.7rem;" src="assets/img/notificacao2.png" alt="Notificação"></a></li>
+          <li><a href="/pergunta_respondida"><img id = "tarefa" style="width: 1.7rem;" src="assets/img/menu/Tarefa/0.png" alt="Publico"></a> </li>
+          <li><a href="/meus_professor"><img style="width: 1.7rem;" src="assets/img/professor.png" alt="Publico"></a> </li>
+          <li><a href="/duvidas_respondidas" id = "duvida"><img style="width: 1.7rem;" src="assets/img/menu/duvida/0.png" alt="Publico"></a></li>
+          <li><a href="/turmas"><img style="width: 1.7rem;" src="assets/img/turma.png" alt="Publico"></a></li>
+          <li><a href="/timeline_publico"><img style="width: 1.7rem;" src="assets/img/public.png" alt="Publico"></a></li>
+          <li><a href="/pesquisar"><img style="width: 1.7rem;" src="assets/img/pesquisar.png" alt="Publico"></a></li>
+        </ul>
+      </nav>
+      <?php }?>
+
+    </div>
+  </header><!-- End Header -->
+
+ 
+
+  <main>
+
+    <!-- ======= SENSSÃO ======= -->
+    <!-- ======= SENSSÃO ======= -->
+    <!-- ======= SENSSÃO ======= -->
+  
+      <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="row">
+          <!-- ======= COLUNA LATERAL ESQUERDA ======= -->
+          <div class="col-lg-3">
+              <div class="row">
+                  <div class="col-12">
+                    
+                  </div>
+              </div>
+             
+          <!-- ======= FIM COLUNA LATERAR ESQUERDA ======= -->
+          </div>
+
+
+          <!-- ======= AREA DOS POST ======= -->
+          <!-- ======= AREA DOS POST ======= -->
+          <!-- ======= AREA DOS POST ======= -->
+  
+          <div class="col-lg-6">
+          
+
+            <!-- ======= AREA ONDE PODES VER TODAS AS POSTAGEM ======= -->
+
+            <div class="row">
+                <div class="col-lg-12" data-aos="fade-up">
+                  <div class="row mt-0">
+                    <div class="col-12">
+                        <div class="col-lg-12" data-aos="fade-up" >
+                          <div>
+		                      <!-- ======= CARD DE POSTAGEM ======= -->
+		  										<h4><b>Notificação</b></h4>
+                          <?php
+                  if(count($this->view->notificacao) < 1)
+                  {
+                    ?>
+                    <center class = "mt-5">
+                        <img src="assets/img/vazio.png" alt="" style="margin-top: 10%;">
+                        <p><small>Ainda não tens nenhuma Notificação para listar!</small></p>
+                        </center>
+                       
+                    <?php } else {
+                                            
+                              foreach($this->view->notificacao as $key => $valor){
+                            ?>
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                
+                            <div>
+                                
+                                    <div class="row">
+                                      <div class="col-2">
+                                        <?php if($valor['tipo_perfil'] == '2'){ ?>
+                                        <a href="/professor?id_professor=<?= $valor['id'] ?>">
+                                        <img class="rounded-circle  border border-primary m-2" src="/fotos_de_perfil/<?= $valor['nome_foto'] ?>" style="width: 3rem; height: 3rem; object-fit: cover;" />
+                                        </a>
+                                        <?php }?>
+
+                                        <?php if($valor['tipo_perfil'] == '1'){ ?>
+                                        <a href="/aluno?id_aluno=<?= $valor['id'] ?>">
+                                        <img class="rounded-circle  border border-primary m-2" src="/fotos_de_perfil/<?= $valor['nome_foto'] ?>" style="width: 3rem; height: 3rem; object-fit: cover;" />
+                                        </a>
+                                        <?php }?>
+                                      
+                                      </div>
+
+                                      <div class="col-10">
+                                          <p class = "m-2"><b><?= $valor['nome'] ?> </b> </br>
+                                          
+                                          <?= $valor['notificacao'] ?>
+                                          
+                                          </p>  
+                                    </div>
+                                </div>
+                                    </div>
+                                    </div>
+                                
+                            </div>
+                            <hr>
+                            <?php } }?>
+                                  
+                                  
+                                </div>
+                              </div>
+                      </div>
+                  
+              <!-- ======= FIM DO CARD DE POSTAGEM ======= -->
+
+                    </div>
+                  </div>
+              </div>
+            </div>
+
+          </div>
+        </div>  
+    <!-- ======= FIM DA AREA ONDE VC VE TODAS AS POSTAGEM ======= -->
+
+
+    </div>
+          <!-- ======= FIM DA AREA DOS POST ======= -->
+
+          
+                  <div class="col-lg-3">
+
+                  
+                    <div class="row">
+                      <div class="col-12">
+                       
+                  
+                    
+
+                 </div>
+
+          
+
+        </div>
+
+      </div>
+   
+    </section>
+        <!-- ======= SENSSÃO ======= -->
+        <!-- ======= SENSSÃO ======= -->
+        <!-- =======   FIM   ======= -->
+
+    
+
+    
+
+    
+
+   
+
+  </main><!-- End #main -->
+
+  
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/jquery-sticky/jquery.sticky.js"></script>
+  <script src="assets/vendor/venobox/venobox.min.js"></script>
+  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="assets/vendor/counterup/counterup.min.js"></script>
+  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>

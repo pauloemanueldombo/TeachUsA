@@ -1,0 +1,103 @@
+@import "global.css";
+
+#chat div.empty{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#chat .topMenu {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+#chat .topMenu img{
+    float: right;
+    margin-top: 12px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+#chat .innerContainer {
+    width: 100%;
+    height: 80vh;
+    margin-top: 10vh;
+    overflow-y: auto;
+}
+
+#chat .innerContainer p.info{
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 10pt;
+}
+
+#chat #sendMessage {
+    margin-top: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+    height: 50px;
+}
+
+#chat #sendMessage #messageInput{
+    width: 70%;
+    margin-left: 5%;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: white;
+    border: 2px solid #000000;
+    color: black;
+}
+
+#chat #sendMessage label{
+    float: right;
+    margin-top: 5px;
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+#chat .innerContainer .row{
+    display: block;
+    padding: 5px 10%;
+}
+
+#chat .innerContainer .recieved p{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgb(190, 190, 190);
+    border-radius: 20px;
+    max-width: 80%;
+    color: black;
+}
+
+#chat .innerContainer .sent{
+    text-align: right;
+}
+
+#chat .innerContainer .sent p{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #000000;
+    color: #FFF;
+    border-radius: 20px;
+    max-width: 80%;
+}
+
+#chat .innerContainer img{
+    background-color: #EEE;
+    border-radius: 20px;
+    max-width: 80%;
+    max-height: 300px;
+}
+.innerContainer::-webkit-scrollbar {
+    width: 7px;
+  }
+  
+.innerContainer::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  }
+.innerContainer::-webkit-scrollbar-thumb:hover {
+  background: #000000;
+  }

@@ -1,0 +1,118 @@
+@import "global.css";
+
+#inbox input.searchField{
+    display: block;
+    margin: auto;
+    width: 90%;
+    max-width: 300px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 30px;
+    background-color: #EEE;
+}
+#inbox::-webkit-scrollbar {
+    width: 13px;
+  }
+  
+  #inbox::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  }
+  #inbox::-webkit-scrollbar-thumb:hover {
+  background: #e2c17e;
+  }
+
+#inbox #searchContainer{
+    display: block;
+    margin: 10px auto;
+    width: 100%;
+    
+    max-width: 500px;
+    height: 200px;
+    padding-left: 30px;
+    border-radius: 10px;
+    background-color: #ffaa0d;
+    overflow-y: auto;
+    display: none;
+}
+#searchContainer::-webkit-scrollbar {
+    width: 13px;
+  }
+  
+  #searchContainer::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  }
+  #searchContainer::-webkit-scrollbar-thumb:hover {
+  background: #fff9ed;
+  }
+
+#inbox #searchContainer p.noResults{
+    display: block;
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+    font-size: 16pt;
+}
+
+#inbox #searchContainer div.row {
+    display: block;
+    cursor: pointer;
+}
+
+#inbox #searchContainer div.row img {
+    display: inline-block;
+    vertical-align: top;
+    width: 48px;
+    height: 48px;
+    border-radius: 48px;
+    object-fit: cover;
+    object-position: center;
+}
+
+#inbox #searchContainer div.row p {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 12pt;
+    padding-left: 20px;
+    padding-top: 12px;
+}
+
+#inbox div.empty{
+    width: 90%;
+    display: block;
+    margin: 20px auto;
+}
+
+#inbox div.chat {
+    display: block;
+    margin: 0px 0px;
+    padding: 5px 6px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.mostra{
+    margin-top: 60%;
+    width: 16rem;
+    margin-left: 50px;
+}
+#inbox div.new{
+    font-weight: bold;
+}
+
+#inbox div.chat img {
+    display: inline-block;
+    vertical-align: top;
+    width: 48px;
+    height: 48px;
+    border-radius: 48px;
+    object-fit: cover;
+    object-position: center;
+}
+
+#inbox div.chat p {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 12pt;
+    padding-left: 20px;
+    padding-top: 12px;
+}

@@ -1,0 +1,52 @@
+
+<?= session_start() ?>
+<div class="container">
+  <div class="d-flex justify-content-center mt-5">
+    <div class="card" style="width: 30rem;">
+      <div class="card-body">
+
+          <div class="d-flex justify-content-center">
+          		<img src="/img/teach.png" style="width: 6rem;"/>
+        	</div>
+          
+          <div id = "corpo">
+        <div class="row">
+          <div class="col">
+            <h3 class="text-center">Alterar Senha</h3>
+          </div>
+        </div>
+     
+     
+            <h5 class = "text-center text-danger" id = "mensagem_erro_ins"></h5>
+ 
+        <div class="row" >
+       
+          <div class="col">
+              <div class="form-group">
+                <input id = "codigo" type="text" value="" name="nome" class="form-control" placeholder="Codigo de confirmação">
+              </div>
+              
+
+              <div class="form-group">
+                <input id = "pass" type="password" name="senha" class="form-control" placeholder="Senha">
+              </div>
+              <div class="form-group">
+                <input id = "confirma_pass" type="password" value="" name="senha" class="form-control" placeholder="Confirmar Senha">
+              </div>
+              
+
+              <div class="row">
+                <div class="col-8 m-auto">
+			
+                    <button onclick = "confirmar_cod_senha(<?= $_SESSION['codigo'] ?>)" type="submit" class="btn btn-primary btn-block">Confirmar</button>                  
+                </div>
+              </div>
+             
+              </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

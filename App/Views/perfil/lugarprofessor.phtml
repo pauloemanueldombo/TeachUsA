@@ -1,0 +1,128 @@
+
+<nav class="navbar navbar-expand-lg menu">
+	<div class="container">
+	  <div class="navbar-nav">
+			<img src="/img/teach_branco.png" class="menuIco" />
+	  </div>
+	</div>
+</nav>
+
+
+
+  
+<!---==============================================================================-->
+<!---============================  TERCEIRO PASSO LOCAL  ============================-->
+<!---==============================================================================-->
+<div class="d-flex justify-content-center mt-5">
+                <div class="card mt-5" style="width: 35rem;">
+                    <div class="card-body">
+
+                        <div class="d-flex justify-content-center">
+                                <img src="/img/nivel3.png" />
+                            </div>
+
+                        <div class="row">
+                        <div class="col">
+                            <h2 class="text-center">Lugares onde podes se deslocar:</h2>
+                        </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <form action="/lista_municipio" method="post">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <h5>Província</h5>
+                                            <select name="id_provincia" class="form-control">
+                                                <option  value="">Província</option>
+                                                <?php foreach($this->view->provincias as $key => $valor){  ?>
+                                                <option  value="<?= $valor['id_provincia'] ?>"><?= $valor['provincia'] ?></option> 
+                                                <?php  }?>    
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class = "row mt-2">
+                                        <div class="col-lg-12">
+                                            <button type="submit" class="btn btn-primary btn-block">Confirmar</button>
+                                        </div>    
+                                    </div>
+                                </form>
+                            </div>   
+                            <div class="col-lg-6">
+                                <form action="/guardar_professor_luagar" method="post">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <h5>Município</h5>
+                                            <select name="id_municipio" class="form-control">
+                                                <option  value="">Município</option>
+                                                <?php  
+                                                      if($this->view->municipio != ''){    
+                                                      foreach($this->view->municipio as $key => $valor){ 
+                                                ?>
+                                                <option  value="<?= $valor['id_municipio'] ?>"><?= $valor['municipio'] ?></option> 
+                                                <?php  }}?>    
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class = "row mt-2">
+                                        <div class="col-lg-12">
+                                            <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
+                                        </div>    
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <table class="table table-sm table-dark">
+                                    <div class="table-responsive">
+                                        <table class="table align-middle">
+                                            <thead>
+                                                <tr>
+                                                        <th>Província</th>
+                                                        <th>Município</th>
+                                                        <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php  
+                                                      if($this->view->professor_lugar != ''){    
+                                                      foreach($this->view->professor_lugar as $key => $valor){ 
+                                                ?>
+                                                <tr>
+                                                    <td><?= $valor['provincia'] ?></td>
+                                                    <td><?= $valor['municipio'] ?></td>
+                                                    <td>
+                                                    <a href="/iliminar_professor_luagar?id_lugar=<?= $valor['id_professor_lugar']?>" type="submit" class="btn btn-danger btn-block tex-light"><img style="width: 1.3rem;" src="/img/iliminar.png" /></a>
+                                                    </td>
+                                                </tr>
+                                                <?php  }}?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </table>
+                            </div>
+                        </div>
+                    
+
+                    </div>
+                </div>
+            </div>
+
+  <!---==============================================================================-->
+        <!---============================  QUARTO PASSO LOCAL  ============================-->
+    <!---==============================================================================-->
+    
+                 <div class="row mt-2">
+                    <div class="col-12 m-auto">
+                            <center>
+                              <a href="/foto_de_perfil" style="width: 20rem;" type="submit" class="btn btn-primary btn-block mb-5">Guardar Dado</a> 
+                            </center>
+                                         
+                    </div>
+                  </div>
+
+
+                  </form>
+
+</div>

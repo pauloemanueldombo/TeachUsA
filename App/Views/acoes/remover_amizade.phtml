@@ -1,0 +1,49 @@
+
+
+<div class="container">
+  <div class="d-flex justify-content-center mt-5">
+    <div class="card" style="width: 30rem;">
+      <div class="card-body">
+
+          <div class="d-flex justify-content-center">
+          <img class="rounded-circle border border-primary" src="/fotos_de_perfil/<?= $this->view->pessoa['nome_foto'] ?>" style="width: 5rem; height: 5rem; object-fit: cover; height: 5rem; object-fit: cover;" />
+        	</div>
+            <h4 class = "text-center"><?= $this->view->pessoa['nome'] ?></h4>
+          
+          <div id = "corpo">
+        <div class="row">
+          <div class="col">
+            <h5 class="text-center text-danger">Remover Conexão</h5>
+          </div>
+        </div>
+     
+     
+            <h5 class = "text-center text-danger" id = "mensagem_erro_ins"></h5>
+ 
+        <div class="row" >
+       
+          <div class="col">
+             
+             
+              
+
+              <div class="row">
+                <div class="col-8 m-auto">
+			
+                  
+                    <button onclick = "iliminar_conexao(<?= $this->view->pessoa['id'] ?>)" type="submit" class="btn btn-danger btn-block">APAGAR</button>                  
+                </div>
+              </div>
+              <div class="mt-2 mb-4">
+                <small class="form-text text-center text-info">
+                  Aviso: Ao removeres a conexão com <?= $this->view->pessoa['nome'] ?> já não poderas ter acesso as as suas publicações privadas e não estará na tua lista de aluno ou professor! 
+                </small>
+              </div>
+              </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

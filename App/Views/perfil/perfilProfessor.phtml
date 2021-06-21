@@ -1,0 +1,214 @@
+
+<div class="container">
+  <div class="row mt-0">
+      <div class="col-12 mt-3">
+        <h3 class="text-center mt-5">Ficha De Cadastro Do Professor</h3>
+      </div>
+        
+  </div>
+  <div class="d-flex justify-content-center">
+    
+    <div class="card" style="width: 35rem;">
+      <div class="card-body">
+
+          <div class="d-flex justify-content-center">
+          		<img src="/img/nivel1.png" />
+        	</div>
+
+        <div class="row">
+          <div class="col">
+            <h2 class="text-center">Dados Pessoais</h2>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            
+            <form action="/guardar_dado_perfil_professor" method="post">
+            <div class="row">
+                    <div class="col-6">
+                    <label for="">País</label>
+                    <input type="text" name = "pais" class = "form-control" placeholder = "País.. ex: Angola">
+                   
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                        <label for="">Data de Nascimento</label>
+                          <input type="date"  name="data_nascimento" class="form-control" placeholder="Data Nascimento">
+                        </div>                      
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                        <label for="">Número de telefone</label>
+                          <input type="text"  name="telefone1" class="form-control" placeholder="Telefone">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                        <label for="">Gênero</label>
+                        <select name="sexo" class="form-control">
+
+                          <option value="">Sexo</option>
+                          <option value="M">Masculino</option>
+                          <option value="F">Femenino</option>
+
+                        </select>
+                        </div>                      
+                    </div>
+                  </div>
+                  
+                  
+
+                
+            
+           
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+<!---==============================================================================-->
+<!---============================  SEGUNDO PASSO LOCAL  ============================-->
+<!---==============================================================================-->
+<div class="d-flex justify-content-center mt-5">
+                <div class="card mt-0" style="width: 35rem;">
+                <div class="card-body">
+
+                    <div class="d-flex justify-content-center">
+                            <img src="/img/nivel2.png" />
+                        </div>
+
+                    <div class="row">
+                    <div class="col">
+                        <h2 class="text-center">Localização</h2>
+                    </div>
+                    </div>
+
+                    <div class="row">
+                    <div class="col">
+                        
+                            <div class="row">
+                           
+                                <div class="col-6">
+                                    <div class="form-group">
+                                    <label for="">Província</label>
+                                    <select onchange = "listar_municipio()" id = "provincia" name="cidade" class="form-control">
+                                      
+                                      </select>
+                                    </div>                      
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                    <label for="">Município</label>
+                                    <select id = "municipio" name="municipio" class="form-control">
+                                      
+                                    </select>
+                                    </div>                      
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                    <label for="">Bairro</label>
+                                    <input type="text"  name="bairro" class="form-control" placeholder="Bairro:">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                            <div class="col-12">
+                                    <div class="form-group">
+                                    <label for="">Rua</label>
+                                    <input type="text"  name="rua" class="form-control" placeholder="Rua:">
+                                    </div>
+                                </div>
+                               
+                                
+                            </div>
+                            
+
+                            
+
+
+                    </div>
+                    </div>
+
+                </div>
+                </div>
+            </div>
+
+  <!---==============================================================================-->
+<!---============================  SEGUNDO PASSO LOCAL  ============================-->
+<!---==============================================================================-->
+<div class="d-flex justify-content-center mt-5">
+    <div class="card mt-0" style="width: 35rem;">
+      <div class="card-body">
+
+          <div class="d-flex justify-content-center">
+          		<img src="/img/nivel3.png" />
+        	</div>
+
+        <div class="row">
+          <div class="col">
+            <h2 class="text-center">Dados De Formação</h2>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+                  <div class="row mb-3">
+                    
+                    <div class="col-12">
+                    <label for="">Nível Acadêmico</label>
+                      <select name="nivel" class="form-control">
+                        <option value=""><small> Nível Acadêmico</small></option>
+                        <option value="Ensíno Médio">Ensíno Médio</option>
+                        <option value="Ensíno Superior1">Ensíno Superior</option>
+                        <option value="Lincenciado">Lincenciado</option>
+                      </select>                     
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="">Instituição</label>
+                            <input type="text"  name="escola" class="form-control" placeholder="Instituição:">
+                        </div>                       
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                        <label for="">Curso</label>
+                          <input type="text"  name="curso" class="form-control" placeholder="Curso:">
+                        </div>
+                    </div>
+                    
+                  </div>
+
+                  
+            
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+          <div class="row mt-2">
+                    <div class="col-12 m-auto">
+                            <center>
+                              <button style="width: 20rem;" type="submit" class="btn btn-primary btn-block mb-5">Guardar Dado</button> 
+                            </center>
+                                         
+                    </div>
+                  </div>
+
+
+                  </form>
+
+</div>
